@@ -1,0 +1,189 @@
+<html>
+<head>
+	
+	<style>
+		label{
+		display:block;
+		}
+		.labels{
+		margin-bottom:20px;
+		}
+		#address{
+		width:170px;
+		}
+		.checkbox{
+		display:block;
+		}
+		
+		
+		.inline{
+		display:inline;
+		}
+		
+			
+	</style>
+</head>
+<body>
+	<form>
+	<div class="labels">
+		<label>First Name:</label>
+		<input  type="text" id="first_name"></input>
+	</div>
+	<div class="labels">
+		<label>Last Name:</label>
+		<input class type="text" id="last_name"></input>
+	</div>
+	<div class="labels">
+		<label>Email:</label>
+		<input type="email" id="email"></input>
+	</div>
+	<div class="labels">
+		<label>Contact Number:</label>
+		<input type="text"  maxlength="10" id="contact_number"></input>
+	</div>
+	<div class="labels">
+		<label>Address:</label>
+		<textarea id="address" rows="3"  cols="20"></textarea>
+	</div>
+	<div class="labels">
+		<label>User Name:</label>
+		<input type="text" id="user_name"></input>
+	</div>
+	<div class="labels">
+		<label>Password:</label>
+		<input type="Password" id="password"></input>
+	</div>
+	<div class="labels">
+		<label>Gender:</label>
+		<input  type="radio" class="radio" id="Male" value="Male"><label class="inline">Male</label></input>
+		<input type="radio" class="radio" id="Female" value="Female"><label class="inline">Female</input>
+	</div>
+	<div class="labels">
+		<label>Qualification:</label>                                     
+		<select id="Qualist">
+			<option id="op">--Select--</option>
+			<script>
+			
+				var qual=["10+2","Graduate","Post-Graduate","Doctorate"];
+				var sel=document.getElementById("Qualist");
+				for(var i=0;i<qual.length;i++){
+					var option=document.createElement("OPTION");
+					option.innerHTML=qual[i];
+		            option.value=qual[i];
+		            sel.appendChild(option);
+					}
+				
+			</script>
+		</select>
+		
+		</div>
+	<div class="labels">
+		<label>Experience:</label>
+		<select id="EXP">
+			<option>--Select--</option>
+			<script>
+			
+				var exp=["1 year","2 year","3 year","4 year"];
+				var se=document.getElementById("EXP");
+				for(var i=0;i<exp.length;i++){
+					var opt=document.createElement("OPTION");
+					opt.innerHTML=exp[i];
+		            opt.value=exp[i];
+		            se.appendChild(opt);
+					}
+				
+			</script>
+		</select>
+		
+		</div>
+	<div class="labels">
+		<label>Coding Languages:</label>
+		<input type="checkbox" id="first" class="checkbox"/><label id="l1" class="inline" name="choice"></label>
+		<input type="checkbox" id="second" class="checkbox" /><label id="l2" class="inline" ></label>
+		<input type="checkbox" id="third" class="checkbox" /><label id="l3" class="inline" ></label>
+		<input type="checkbox"id="fourth" class="checkbox"/><label id="l4" class="inline" name="choice"></label>
+		<input type="checkbox"id="fifth" class="checkbox"/><label id="l5" class="inline" name="choice"></label>
+		
+			
+
+		<script>
+			var lang=[{LanguageName:"C/C++",IsEnabled:false},{LanguageName:"Java",IsEnabled:true},{LanguageName:"C#",IsEnabled:true},{LanguageName:"PHP",IsEnabled:false},{LanguageName:"Python",IsEnabled:false}];
+			document.getElementById("l1").innerHTML=lang[0].LanguageName;
+			document.getElementById("first").checked=lang[0].IsEnabled;
+			
+			document.getElementById("l2").innerHTML=lang[1].LanguageName;
+			document.getElementById("second").checked=lang[1].IsEnabled;
+			
+			document.getElementById("l3").innerHTML=lang[2].LanguageName;
+			document.getElementById("third").checked=lang[2].IsEnabled;
+			
+			document.getElementById("l4").innerHTML=lang[3].LanguageName;
+			document.getElementById("fourth").checked=lang[3].IsEnabled;
+			
+			document.getElementById("l5").innerHTML=lang[4].LanguageName;
+			document.getElementById("fifth").checked=lang[4].IsEnabled;
+			
+			
+				
+			
+		</script>
+		</div>
+	    <div>
+			<input type="button" onclick="info()" value="Submit"></input>
+			<script>
+				function info(){
+				        var choice=[null,null,null,null,null];
+						var X=5;
+						var ob={fname:null,
+						lname:null,
+						email:null,
+						cn:null,
+				        Address:null,
+				        un:null,
+				        pass:null,
+				        Gen:null,
+				        Qual:null,
+				        choice:["Java","C#"," "," "," "]
+				        }
+					ob.fname=document.getElementById("first_name").value;
+					ob.lname=document.getElementById("last_name").value;
+					ob.email=document.getElementById("email").value;
+					ob.cn=document.getElementById("contact_number").value;
+					ob.Address=document.getElementById("address").value;
+					ob.un=document.getElementById("user_name").value;
+					ob.pass=document.getElementById("password").value;
+					
+					if(document.getElementById("Male").checked==true){
+						ob.Gen="Male"
+						}
+					else{
+						ob.Gen="Female"
+						}
+				    ob.Qual=document.getElementById("Qualist").value;
+					ob.Exp=document.getElementById("EXP").value;
+					
+					if(document.getElementById("l3").checked==true)
+					{
+						choice[2]=document.getElementById("l3").value;
+						}
+							else if(document.getElementById("l4").checked==true)
+									{
+										
+										choice[3]=document.getElementById("l4").value;
+										}
+										else if(document.getElementById("l5").checked==true)
+										{
+											choice[4]=document.getElementById("l5").value;
+										}
+					
+					
+					
+					
+				
+					console.log(ob.fname+" "+ob.lname+" "+ob.email+" "+ob.cn+" "+ob.Address+" "+ob.un+" "+ob.pass+" "+ob.Gen+" "+ob.Qual+" "+ob.Exp+" "+ob.choice1+" "+ob.choice2+" "+ob.choice[0]+" "+ob.choice[1]+" "+ob.choice[2]+" "+ob.choice[3]+" "+ob.choice[4]);
+				
+				}
+			</script>
+		</div>
+	
+</body>
